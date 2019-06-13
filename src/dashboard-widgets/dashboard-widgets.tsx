@@ -21,6 +21,7 @@ export default function DashboardWidgets(props: DashboardWidgetsProps) {
             border-radius: 5px;
             box-shadow: 0 10px 30px -24px #b3b3b3;
             padding: 16px;
+            margin-bottom: 16px;
           `}
           key={i}
         >
