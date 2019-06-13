@@ -33,7 +33,7 @@ function BasicInfoParcel(props: BasicInfoParcelProps) {
       });
   }, []);
 
-  return <>{patient ? renderPatient() : renderLoader()}</>;
+  return patient ? renderPatient() : renderLoader();
 
   function renderLoader() {
     return <div>Loading...</div>;
