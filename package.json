@@ -7,10 +7,15 @@
     "start": "webpack-dev-server",
     "start-https": "webpack-dev-server --https",
     "build": "webpack --mode production",
-    "lint": "eslint src/**/*",
+    "lint": "eslint src --fix --ext .tsx",
     "prettier": "prettier",
     "typescript": "tsc",
     "test": "jest --config jest.config.json"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint && npm test && npm run typescript"
+    }
   },
   "repository": {
     "type": "git",
@@ -24,10 +29,12 @@
   "homepage": "https://github.com/joeldenning/openmrs-esm-patient-dashboard#readme",
   "devDependencies": {
     "@babel/core": "^7.4.5",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.3.3",
     "@emotion/babel-preset-css-prop": "^10.0.9",
+    "@testing-library/react": "^8.0.1",
     "@types/jest": "^24.0.13",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.8.0",
@@ -53,6 +60,7 @@
     "@emotion/core": "^10.0.10",
     "@types/react": "^16.8.19",
     "@types/react-dom": "^16.8.4",
+    "dayjs": "^1.8.14",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-router": "^5.0.1",

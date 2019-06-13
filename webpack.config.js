@@ -31,7 +31,7 @@ module.exports = {
     },
     disableHostCheck: true
   },
-  externals: ["react", "react-dom"],
+  externals: ["react", "react-dom", /^@(openmrs|@hackathon)\/.*$/g],
   plugins: [new CleanWebpackPlugin()],
   resolve: {
     extensions: [".tsx", ".ts", ".jsx", ".js"]
