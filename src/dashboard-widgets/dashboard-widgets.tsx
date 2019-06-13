@@ -26,7 +26,7 @@ export default function DashboardWidgets(props: DashboardWidgetsProps) {
         >
           <Parcel
             config={parcel}
-            patientId="f7593885-8cdf-11e9-aefa-0242ac160002"
+            patientUuid="f7593885-8cdf-11e9-aefa-0242ac160002"
           />
         </div>
       ))}

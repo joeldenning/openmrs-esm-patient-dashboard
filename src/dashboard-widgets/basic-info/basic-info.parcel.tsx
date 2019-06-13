@@ -18,13 +18,13 @@ function BasicInfoParcel(props: BasicInfoParcelProps) {
       ,address6)))
     `.replace(/\s/g, "");
 
-    fetch(`/openmrs/ws/rest/v1/patient/${props.patientId}?v=${queryParams}`)
+    fetch(`/openmrs/ws/rest/v1/patient/${props.patientUuid}?v=${queryParams}`)
       .then(resp => {
         if (resp.ok) {
           return resp.json();
         } else {
           throw Error(
-            `Cannot fetch patient ${props.patientId} - server responded with '${resp.status}'`
+            `Cannot fetch patient ${props.patientUuid} - server responded with '${resp.status}'`
           );
         }
       })
@@ -63,7 +63,7 @@ function BasicInfoParcel(props: BasicInfoParcelProps) {
 }
 
 type BasicInfoParcelProps = {
-  patientId: string;
+  patientUuid: string;
 };
 
 export default singleSpaReact({
