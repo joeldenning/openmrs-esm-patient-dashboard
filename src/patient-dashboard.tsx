@@ -1,4 +1,4 @@
-import './set-public-path'
+import "./set-public-path";
 import React from "react";
 import ReactDOM from "react-dom";
 import singleSpaReact from "single-spa-react";
@@ -8,7 +8,7 @@ const lifecycles = singleSpaReact({
   React,
   ReactDOM,
   rootComponent: Root,
-  suppressComponentDidCatchWarning: true,
+  suppressComponentDidCatchWarning: true
 });
 
 export const bootstrap = lifecycles.bootstrap;
