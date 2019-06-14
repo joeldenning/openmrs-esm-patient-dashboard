@@ -27,7 +27,7 @@ export default function DashboardWidgets(props: DashboardWidgetsProps) {
         >
           <Parcel
             config={parcel}
-            patientUuid="f7593885-8cdf-11e9-aefa-0242ac160002"
+            patientUuid={props.match.params.patientUuid}
           />
         </div>
       ))}
@@ -35,4 +35,10 @@ export default function DashboardWidgets(props: DashboardWidgetsProps) {
   );
 }
 
-type DashboardWidgetsProps = {};
+type DashboardWidgetsProps = {
+  match: {
+    params: {
+      patientUuid: string,
+    }
+  }
+};
