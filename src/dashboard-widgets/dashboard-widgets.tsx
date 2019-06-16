@@ -3,14 +3,15 @@ import { css } from "@emotion/core";
 import Parcel from "single-spa-react/parcel";
 
 const patientDashboardParcels = [
-  () => import("./basic-info/basic-info.parcel").then(m => m.default)
+  // A patient dashboard widget within this git repo
+  () => import("./basic-info/basic-info.parcel").then(m => m.default),
 ];
 
 export default function DashboardWidgets(props: DashboardWidgetsProps) {
   return (
     <div
       css={css`
-        margin: 0 auto;
+        margin: 76px auto 0 auto;
         width: 500px;
       `}
     >
