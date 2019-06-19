@@ -34,23 +34,27 @@ function RecentVisitsParcel(props: RecentVisitsProps) {
   }
 
   function renderRecentVisits() {
-    return (
-      <div className="test">
-        <h3>Recent Visits</h3>
-        <table
-          css={css`
-            border-spacing: 0;
-            padding: 5px 10px;
-            width: 100%;
-            border: 1px solid #dddddd;
-          `}
-        >
-          <tbody>
-            {recentVisit.results.map(visit => renderVisitEncounters(visit))}
-          </tbody>
-        </table>
-      </div>
-    );
+    if (recentVisit.results.length > 0) {
+      return (
+        <div className="test">
+          <h3>Recent Visits</h3>
+          <table
+            css={css`
+              border-spacing: 0;
+              padding: 5px 10px;
+              width: 100%;
+              border: 1px solid #dddddd;
+            `}
+          >
+            <tbody>
+              {recentVisit.results.map(visit => renderVisitEncounters(visit))}
+            </tbody>
+          </table>
+        </div>
+      );
+    } else {
+      return <div>No recent visits Available</div>;
+    }
   }
 
   function renderVisitEncounters(visit) {
@@ -61,27 +65,41 @@ function RecentVisitsParcel(props: RecentVisitsProps) {
         `}
       >
         <td>
-          <a href="/">{dayjs(visit.startDatetime).format("YYYY:MM:DD")}</a>
+          <a
+            href={`/openmrs/coreapps/patientdashboard/patientDashboard.page?patientId=${props.patientUuid}`}
+          >
+            {dayjs(visit.startDatetime).format("YYYY:MM:DD")}
+          </a>
         </td>
+        {renderEncounters(visit.encounters)}
+      </tr>
+    );
+  }
+  function renderEncounters(encounters) {
+    if (encounters.length > 0) {
+      return (
         <td>
           <div
             css={css`
-              border: 2px solid green;
-              font-size: 10px;
-              margin-left: 50%;
-              padding: 5px;
-              position: relative;
+              background-color: #51a351;
+              color: white;
+              border-radius: 1px;
+              float: right;
+              font-size: 0.8em;
+              padding: 2px 5px;
             `}
           >
-            {visit.encounters
+            {encounters
               .map(encounter => {
                 return encounter.encounterType.display;
               })
               .join(", ")}
           </div>
         </td>
-      </tr>
-    );
+      );
+    } else {
+      return <td>No Encounter</td>;
+    }
   }
 }
 
