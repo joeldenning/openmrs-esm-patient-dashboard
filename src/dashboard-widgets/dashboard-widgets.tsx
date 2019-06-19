@@ -5,6 +5,7 @@ import Parcel from "single-spa-react/parcel";
 const patientDashboardParcels = [
   // A patient dashboard widget within this git repo
   () => import("./basic-info/basic-info.parcel").then(m => m.default),
+  () => System.import('@openmrs/eldoHackathon-widget')
 ];
 
 export default function DashboardWidgets(props: DashboardWidgetsProps) {
