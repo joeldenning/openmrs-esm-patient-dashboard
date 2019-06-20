@@ -8,7 +8,8 @@ const patientDashboardParcels = [
   () => import("../formentry/forms-parcel").then(m => m.default),
   () => System.import("@hackathon/relationships-widget"),
   () => System.import("@hackathon/patient-weight-graph"),
-  () => System.import("@openmrs/latest-obs-widget")
+  () => System.import("@openmrs/latest-obs-widget"),
+  () => System.import('@openmrs/allergies'),
 ];
 
 export default function DashboardWidgets(props: DashboardWidgetsProps) {
@@ -16,7 +17,7 @@ export default function DashboardWidgets(props: DashboardWidgetsProps) {
     <div
       css={css`
         margin: 76px auto 0 auto;
-        width: 500px;
+        width: 900px;
       `}
     >
       {patientDashboardParcels.map((parcel, i) => (
