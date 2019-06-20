@@ -193,7 +193,7 @@ function PatientInfoHeaderParcel(props: PatientInfoHeaderParcelProps) {
           `}
           type="button"
           onClick={handleOnclickEditAddress}
-          className="outlined mx-1"
+          className="filled mx-1"
         >
           <i className="fa fa-pen"></i>
         </button>
@@ -214,7 +214,7 @@ function PatientInfoHeaderParcel(props: PatientInfoHeaderParcelProps) {
   }
 
   function handleOnclickEditAddress(event) {
-    const redirect_pat_url = `https://openmrs-spa.org/openmrs/registrationapp/editSection.page?patientId=${props.patientUuid}&sectionId=contactInfo&appId=referenceapplication.registrationapp.registerPatient&returnUrl=/openmrs/coreapps/clinicianfacing/patient.page?patientId=${props.patientUuid}&`;
+    const redirect_pat_url = `https://openmrs-spa.org/openmrs/spa/patient-dashboard/${props.patientUuid}/contact-information`;
     event.preventDefault();
     window.location.href = redirect_pat_url;
   }
