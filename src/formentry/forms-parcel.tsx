@@ -29,8 +29,8 @@ function FormsParcel(props: FromsParcelProps) {
         <h2>Forms</h2>
         {forms.map((item, i) => {
           return (
-            <ul>
-              <li key={i}>
+            <ul className="list-group">
+              <li className="list-group-item" key={i}>
                 <Link
                   to={`/patient-dashboard/${props.patientUuid}/formentry/${item.uuid}`}
                 >
