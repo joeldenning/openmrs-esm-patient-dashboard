@@ -16,7 +16,7 @@ const patientDashboardParcels = [
   () => System.import("@hackathon/openmrsVitals"),
   () => System.import("@hackathon/diagnosis-widget"),
   () => System.import("@hackathon/patient-address-widget"),
-  () => System.import('@hackathon/allergies')
+  () => System.import("@hackathon/allergies")
 ];
 
 export default function DashboardWidgets(props: DashboardWidgetsProps) {
@@ -36,29 +36,29 @@ export default function DashboardWidgets(props: DashboardWidgetsProps) {
         />
       </div>
       <div
-      css={css`
-        margin: 70px auto 0 auto;
-        width: 900px;
-      `}
-    >
-      {patientDashboardParcels.map((parcel, i) => (
-        <div
-          css={css`
-            background-color: white;
-            border-radius: 5px;
-            box-shadow: 0 10px 30px -24px #b3b3b3;
-            padding: 16px;
-            margin-bottom: 16px;
-          `}
-          key={i}
-        >
-          <Parcel
-            config={parcel}
-            patientUuid={props.match.params.patientUuid}
-          />
-        </div>
-      ))}
-    </div>
+        css={css`
+          margin: 70px auto 0 auto;
+          width: 900px;
+        `}
+      >
+        {patientDashboardParcels.map((parcel, i) => (
+          <div
+            css={css`
+              background-color: white;
+              border-radius: 5px;
+              box-shadow: 0 10px 30px -24px #b3b3b3;
+              padding: 16px;
+              margin-bottom: 16px;
+            `}
+            key={i}
+          >
+            <Parcel
+              config={parcel}
+              patientUuid={props.match.params.patientUuid}
+            />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
