@@ -45,7 +45,7 @@ function PatientInfoHeaderParcel(props: PatientInfoHeaderParcelProps) {
   function renderPatient() {
     const birthday = patient.person.birthdate
       ? dayjs(patient.person.birthdate).format("YYYY-MM-DD")
-      : "(No birthday";
+      : "No birthday";
     return (
       <div
         css={css`
@@ -53,28 +53,40 @@ function PatientInfoHeaderParcel(props: PatientInfoHeaderParcelProps) {
           display: inline-block;
         `}
       >
-        <h3
+        <h4
+          className="mx-3"
           css={css`
             display: inline-block;
           `}
         >
-          {patient.person.display || "(No name)"} ,{" "}
-        </h3>
-        <h5
-          css={css`
-            display: inline-block;
-          `}
-        >
-          {patient.person.gender === "M" ? "Male" : "Female"} |
-        </h5>
+          {patient.person.display || "(No name)"}
+        </h4>
         <p
+          className="px-1"
           css={css`
             display: inline-block;
           `}
         >
-          {patient.person.age} year(s) | (BirthDate: {birthday}) |{" "}
+          {patient.person.gender === "M" ? "Male" : "Female"} |{" "}
         </p>
         <p
+          className="px-1"
+          css={css`
+            display: inline-block;
+          `}
+        >
+          {patient.person.age} year(s) |{" "}
+        </p>
+        <p
+          className="px-1"
+          css={css`
+            display: inline-block;
+          `}
+        >
+          BirthDate: {birthday} |{" "}
+        </p>
+        <p
+          className="px-1"
           css={css`
             display: inline-block;
           `}
@@ -82,6 +94,7 @@ function PatientInfoHeaderParcel(props: PatientInfoHeaderParcelProps) {
           {patient.person.dead ? "Deceased" : "Not deceased"} |{" "}
         </p>
         <p
+          className="px-1"
           css={css`
             display: inline-block;
           `}
@@ -115,30 +128,17 @@ function PatientInfoHeaderParcel(props: PatientInfoHeaderParcelProps) {
         <button
           type="button"
           onClick={handleOnclickEditPatientInfo}
-          css={css`
-            border: none;
-            background-color: inherit;
-            font-size: 14px;
-            cursor: pointer;
-            display: inline-block;
-            color: dodgerblue;
-          `}
+          className="outlined mx-1"
         >
-          edit
+          <i className="fa fa-pen"></i>
         </button>
+
         <button
           type="button"
           onClick={handleOnclickContactInfo}
-          css={css`
-            border: none;
-            background-color: inherit;
-            font-size: 14px;
-            cursor: pointer;
-            display: inline-block;
-            color: dodgerblue;
-          `}
+          className="outlined mx-1"
         >
-          show contact info
+          <i className="fa fa-angle-down"></i>
         </button>
       </div>
     );
