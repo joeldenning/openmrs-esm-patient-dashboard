@@ -66,7 +66,7 @@ function RecentVisitsParcel(props: RecentVisitsProps) {
       >
         <td>
           <a
-            href={`/openmrs/coreapps/patientdashboard/patientDashboard.page?patientId=${props.patientUuid}`}
+            href={`/openmrs/coreapps/patientdashboard/patientDashboard.page?patientId=${props.patientUuid}&visitId=${visit.uuid}`}
           >
             {dayjs(visit.startDatetime).format("YYYY:MM:DD")}
           </a>
