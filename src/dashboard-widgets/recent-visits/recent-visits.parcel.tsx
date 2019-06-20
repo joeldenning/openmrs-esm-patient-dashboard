@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import singleSpaReact from "single-spa-react";
 import dayjs from "dayjs";
-import css from "@emotion/css";
 
 function RecentVisitsParcel(props: RecentVisitsProps) {
   const [recentVisit, setRecentVisits] = React.useState(null);
@@ -36,20 +35,17 @@ function RecentVisitsParcel(props: RecentVisitsProps) {
   function renderRecentVisits() {
     if (recentVisit.results.length > 0) {
       return (
-        <div className="test">
-          <h3>Recent Visits</h3>
-          <table
-            css={css`
-              border-spacing: 0;
-              padding: 5px 10px;
-              width: 100%;
-              border: 1px solid #dddddd;
-            `}
-          >
-            <tbody>
-              {recentVisit.results.map(visit => renderVisitEncounters(visit))}
-            </tbody>
-          </table>
+        <div className="card">
+          <div className="card-header">
+            <h5 className="card-title">Recent Visits</h5>
+          </div>
+          <div className="card-body">
+            <table className="table table-bordered">
+              <tbody>
+                {recentVisit.results.map(visit => renderVisitEncounters(visit))}
+              </tbody>
+            </table>
+          </div>
         </div>
       );
     } else {
@@ -59,16 +55,12 @@ function RecentVisitsParcel(props: RecentVisitsProps) {
 
   function renderVisitEncounters(visit) {
     return (
-      <tr
-        css={css`
-          border: 1px solid #dddddd;
-        `}
-      >
+      <tr>
         <td>
           <a
             href={`/openmrs/coreapps/patientdashboard/patientDashboard.page?patientId=${props.patientUuid}&visitId=${visit.uuid}`}
           >
-            {dayjs(visit.startDatetime).format("YYYY:MM:DD")}
+            {dayjs(visit.startDatetime).format("YYYY-MM-DD")}
           </a>
         </td>
         {renderEncounters(visit.encounters)}
@@ -79,16 +71,7 @@ function RecentVisitsParcel(props: RecentVisitsProps) {
     if (encounters.length > 0) {
       return (
         <td>
-          <div
-            css={css`
-              background-color: #51a351;
-              color: white;
-              border-radius: 1px;
-              float: right;
-              font-size: 0.8em;
-              padding: 2px 5px;
-            `}
-          >
+          <div className="badge badge-success">
             {encounters
               .map(encounter => {
                 return encounter.encounterType.display;
