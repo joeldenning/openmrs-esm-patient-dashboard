@@ -3,7 +3,10 @@ import { css } from "@emotion/core";
 import Parcel from "single-spa-react/parcel";
 
 const patientDashboardParcels = [
-  () => import("./basic-info/basic-info.parcel").then(m => m.default),
+  () =>
+    import("./patient-info-header/patient-info-header.parcel").then(
+      m => m.default
+    ),
   () => import("./recent-visits/recent-visits.parcel").then(m => m.default),
   () => import("../formentry/forms-parcel").then(m => m.default),
   () => System.import("@hackathon/relationships-widget"),
@@ -16,8 +19,8 @@ export default function DashboardWidgets(props: DashboardWidgetsProps) {
   return (
     <div
       css={css`
-        margin: 76px auto 0 auto;
-        width: 500px;
+        margin: 70px auto 0 auto;
+        width: 800px;
       `}
     >
       {patientDashboardParcels.map((parcel, i) => (
