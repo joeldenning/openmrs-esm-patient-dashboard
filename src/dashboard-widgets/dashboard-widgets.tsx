@@ -2,7 +2,10 @@ import React from "react";
 import { css } from "@emotion/core";
 import Parcel from "single-spa-react/parcel";
 
-const patientInfoParcel = () => import("./patient-info-header/patient-info-header.parcel").then(n => n.default)
+const patientInfoParcel = () =>
+  import("./patient-info-header/patient-info-header.parcel").then(
+    n => n.default
+  );
 
 const patientDashboardParcels = [
   () => import("./recent-visits/recent-visits.parcel").then(m => m.default),
@@ -19,15 +22,18 @@ const patientDashboardParcels = [
 export default function DashboardWidgets(props: DashboardWidgetsProps) {
   return (
     <div>
-       <div className="container-fluid" css={css`
-        margin: 70px auto 0 auto;
-        background-color: #fff;
-        padding: 10px 0px 10px 0px;
-      `}>
-      <Parcel
+      <div
+        className="container-fluid"
+        css={css`
+          margin: 70px auto 0 auto;
+          background-color: #fff;
+          padding: 10px 0px 10px 0px;
+        `}
+      >
+        <Parcel
           config={patientInfoParcel}
-            patientUuid={props.match.params.patientUuid}
-          />
+          patientUuid={props.match.params.patientUuid}
+        />
       </div>
       <div
       css={css`
@@ -54,7 +60,6 @@ export default function DashboardWidgets(props: DashboardWidgetsProps) {
       ))}
     </div>
     </div>
-    
   );
 }
 
