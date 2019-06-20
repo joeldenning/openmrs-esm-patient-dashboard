@@ -4,6 +4,5 @@ import Root from "./root.component";
 
 describe(`<Root />`, () => {
   it(`renders without dying`, () => {
-    expect(true).toBe(true);
-  });
+    render(<Root />);  });
 });
