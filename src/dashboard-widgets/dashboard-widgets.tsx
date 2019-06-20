@@ -9,7 +9,10 @@ const patientDashboardParcels = [
   () => System.import("@hackathon/relationships-widget"),
   () => System.import("@hackathon/patient-weight-graph"),
   () => System.import("@openmrs/latest-obs-widget"),
-  () => System.import('@openmrs/allergies'),
+  () => System.import("@hackathon/diagnosis-widget"),
+  () => System.import("@hackathon/patient-address-widget"),
+  () => System.import('@openmrs/allergies')
+
 ];
 
 export default function DashboardWidgets(props: DashboardWidgetsProps) {
@@ -17,7 +20,7 @@ export default function DashboardWidgets(props: DashboardWidgetsProps) {
     <div
       css={css`
         margin: 76px auto 0 auto;
-        width: 900px;
+        width: 800px;
       `}
     >
       {patientDashboardParcels.map((parcel, i) => (
