@@ -7,6 +7,7 @@ const patientDashboardParcels = [
   () => import("./recent-visits/recent-visits.parcel").then(m => m.default),
   () => import("../formentry/forms-parcel").then(m => m.default),
   () => System.import("@hackathon/relationships-widget"),
+  () => System.import("@hackathon/patient-weight-graph"),
   () => System.import("@openmrs/latest-obs-widget")
 ];
 
