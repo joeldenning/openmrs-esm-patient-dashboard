@@ -43,17 +43,9 @@ export default function DashboardWidgets(props: DashboardWidgetsProps) {
 }
 
 type DashboardWidgetsProps = {
-<<<<<<< HEAD
     match: {
         params: {
-            patientUuid: string,
-        }
-    }
-=======
-  match: {
-    params: {
-      patientUuid: string;
+            patientUuid: string;
+        };
     };
-  };
->>>>>>> 3cd6acd341087fca8eca59ed95f6ff993610d2ac
 };
