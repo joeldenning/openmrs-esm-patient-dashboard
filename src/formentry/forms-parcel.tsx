@@ -25,21 +25,27 @@ function FormsParcel(props: FromsParcelProps) {
 
   return (
     <BrowserRouter basename="/openmrs/spa">
-      <div>
-        <h2>Forms</h2>
-        {forms.map((item, i) => {
-          return (
-            <ul className="list-group">
-              <li className="list-group-item" key={i}>
-                <Link
-                  to={`/patient-dashboard/${props.patientUuid}/formentry/${item.uuid}`}
-                >
-                  {item.display}
-                </Link>
-              </li>
-            </ul>
-          );
-        })}
+      <div className="card">
+        <div className="card-header">
+          <div className="card-title">
+            <h5>Forms</h5>
+          </div>
+        </div>
+        <div className="card-body">
+          {forms.map((item, i) => {
+            return (
+              <ul className="list-group">
+                <li className="list-group-item" key={i}>
+                  <Link
+                    to={`/patient-dashboard/${props.patientUuid}/formentry/${item.uuid}`}
+                  >
+                    {item.display}
+                  </Link>
+                </li>
+              </ul>
+            );
+          })}
+        </div>
       </div>
     </BrowserRouter>
   );
