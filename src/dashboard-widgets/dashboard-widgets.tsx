@@ -14,7 +14,8 @@ const patientDashboardParcels = [
   () => System.import("@openmrs/latest-obs-widget"),
   () => System.import("@openmrs/openmrsVitals"),
   () => System.import("@hackathon/diagnosis-widget"),
-  () => System.import("@hackathon/patient-address-widget")
+  () => System.import("@hackathon/patient-address-widget"),
+  () => System.import('@openmrs/allergies')
 ];
 
 export default function DashboardWidgets(props: DashboardWidgetsProps) {
@@ -22,7 +23,7 @@ export default function DashboardWidgets(props: DashboardWidgetsProps) {
     <div
       css={css`
         margin: 70px auto 0 auto;
-        width: 800px;
+        width: 900px;
       `}
     >
       {patientDashboardParcels.map((parcel, i) => (
