@@ -155,10 +155,12 @@ function PatientInfoHeaderParcel(props: PatientInfoHeaderParcelProps) {
           display: inline-block;
         `}
       >
-        Address: {patient.person.preferredAddress.address1} | city:{" "}
-        {patient.person.preferredAddress.cityVillage} | State:{" "}
-        {patient.person.preferredAddress.stateProvince} | country:{" "}
-        {patient.person.preferredAddress.country} |
+        <p>
+          Address: {patient.person.preferredAddress.address1} | city:{" "}
+          {patient.person.preferredAddress.cityVillage} | State:{" "}
+          {patient.person.preferredAddress.stateProvince} | country:{" "}
+          {patient.person.preferredAddress.country}{" "}
+        </p>
         <button
           type="button"
           onClick={handleOnclickEditAddress}
