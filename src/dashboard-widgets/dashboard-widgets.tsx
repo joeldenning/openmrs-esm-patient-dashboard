@@ -3,9 +3,13 @@ import { css } from "@emotion/core";
 import Parcel from "single-spa-react/parcel";
 
 const patientDashboardParcels = [
-  // A patient dashboard widget within this git repo
   () => import("./basic-info/basic-info.parcel").then(m => m.default),
-  () => System.import('@openmrs/eldoHackathon-widget')
+  () => import("./recent-visits/recent-visits.parcel").then(m => m.default),
+  () => import("../formentry/forms-parcel").then(m => m.default),
+  () => System.import("@hackathon/relationships-widget"),
+  () => System.import("@hackathon/patient-weight-graph"),
+  () => System.import("@openmrs/latest-obs-widget"),
+  () => System.import("@openmrs/openmrsVitals")
 ];
 
 export default function DashboardWidgets(props: DashboardWidgetsProps) {
@@ -40,7 +44,7 @@ export default function DashboardWidgets(props: DashboardWidgetsProps) {
 type DashboardWidgetsProps = {
   match: {
     params: {
-      patientUuid: string,
-    }
-  }
+      patientUuid: string;
+    };
+  };
 };
