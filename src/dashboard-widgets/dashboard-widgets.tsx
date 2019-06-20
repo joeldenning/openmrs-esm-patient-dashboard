@@ -12,7 +12,7 @@ const patientDashboardParcels = [
   () => System.import("@hackathon/relationships-widget"),
   () => System.import("@hackathon/patient-weight-graph"),
   () => System.import("@openmrs/latest-obs-widget"),
-  () => System.import("@openmrs/openmrsVitals"),
+  () => System.import("@hackathon/openmrsVitals"),
   () => System.import("@hackathon/diagnosis-widget"),
   () => System.import("@hackathon/patient-address-widget")
 ];
