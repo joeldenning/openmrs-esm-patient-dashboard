@@ -155,25 +155,47 @@ function PatientInfoHeaderParcel(props: PatientInfoHeaderParcelProps) {
           display: inline-block;
         `}
       >
-        <p>
+        <p
+          className="px-1"
+          css={css`
+            display: inline-block;
+          `}
+        >
           Address: {patient.person.preferredAddress.address1} | city:{" "}
+        </p>
+        <p
+          className="px-1"
+          css={css`
+            display: inline-block;
+          `}
+        >
           {patient.person.preferredAddress.cityVillage} | State:{" "}
+        </p>
+        <p
+          className="px-1"
+          css={css`
+            display: inline-block;
+          `}
+        >
           {patient.person.preferredAddress.stateProvince} | country:{" "}
+        </p>
+        <p
+          className="px-1"
+          css={css`
+            display: inline-block;
+          `}
+        >
           {patient.person.preferredAddress.country}{" "}
         </p>
         <button
+          css={css`
+            display: inline-block;
+          `}
           type="button"
           onClick={handleOnclickEditAddress}
-          css={css`
-            border: none;
-            background-color: inherit;
-            font-size: 14px;
-            cursor: pointer;
-            display: inline-block;
-            color: dodgerblue;
-          `}
+          className="filled mx-1"
         >
-          edit
+          <i className="fa fa-pen"></i>
         </button>
       </div>
     );
@@ -192,9 +214,10 @@ function PatientInfoHeaderParcel(props: PatientInfoHeaderParcelProps) {
   }
 
   function handleOnclickEditAddress(event) {
-    const redirect_pat_url = `https://openmrs-spa.org/openmrs/registrationapp/editSection.page?patientId=${props.patientUuid}&sectionId=contactInfo&appId=referenceapplication.registrationapp.registerPatient&returnUrl=/openmrs/coreapps/clinicianfacing/patient.page?patientId=${props.patientUuid}&`;
+    const redirect_pat_url = `https://openmrs-spa.org/openmrs/spa/patient-dashboard/${props.patientUuid}/contact-information`;
     event.preventDefault();
-    window.location.href = redirect_pat_url;
+    // @ts-ignore
+    window.singleSpaNavigate(redirect_pat_url);
   }
 }
 
