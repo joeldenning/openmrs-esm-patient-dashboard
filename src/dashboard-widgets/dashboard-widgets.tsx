@@ -17,7 +17,8 @@ const patientDashboardParcels = [
   () => System.import("@hackathon/diagnosis-widget"),
   () => System.import("@hackathon/patient-address-widget"),
   () => System.import("@hackathon/allergies"),
-  () => System.import("@hackathon/attachment-widget")
+  () => System.import("@hackathon/attachment-widget"),
+  () => System.import("@openmrs/general-actions-widget")
 ];
 
 export default function DashboardWidgets(props: DashboardWidgetsProps) {
