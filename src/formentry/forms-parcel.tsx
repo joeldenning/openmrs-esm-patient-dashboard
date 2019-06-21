@@ -7,7 +7,7 @@ function FormsParcel(props: FromsParcelProps) {
   const [forms, setForms] = React.useState([]);
 
   React.useEffect(() => {
-    fetch(`/openmrs/ws/rest/v1/form`)
+    fetch(`/openmrs/ws/rest/v1/form?v=full`)
       .then(resp => {
         if (resp.ok) {
           return resp.json();
@@ -36,7 +36,7 @@ function FormsParcel(props: FromsParcelProps) {
               <ul className="list-group">
                 <li className="list-group-item" key={i}>
                   <Link
-                    to={`/patient-dashboard/${props.patientUuid}/formentry/${item.uuid}`}
+                    to={`/patient-dashboard/${props.patientUuid}/formentry/${item.uuid}?encounterTypeUuid=${item.encounterType.uuid}`}
                   >
                     {item.display}
                   </Link>
