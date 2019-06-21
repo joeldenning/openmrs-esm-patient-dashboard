@@ -216,7 +216,8 @@ function PatientInfoHeaderParcel(props: PatientInfoHeaderParcelProps) {
   function handleOnclickEditAddress(event) {
     const redirect_pat_url = `https://openmrs-spa.org/openmrs/spa/patient-dashboard/${props.patientUuid}/contact-information`;
     event.preventDefault();
-    window.location.href = redirect_pat_url;
+    // @ts-ignore
+    window.singleSpaNavigate(redirect_pat_url);
   }
 }
 
